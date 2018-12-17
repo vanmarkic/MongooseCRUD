@@ -240,22 +240,21 @@ router.use(function (req, res, next) {
 //         });
 //     });
 
-// router.route('/bears/:bear_id')
-//     .put(function (req, res) {
-//         Bear.findById(req.params.bear_id, (err, bear) => {
-//             if (err)
-//                 res.send(err);
-//             bear.name = req.body.name; // update the bears info
-//             bear.save((err) => {
-//                 if (err)
-//                     res.send(err);
-//                 res.json({
-//                     message: 'Bear updated!'
-//                 });
-//             });
+router.route('/bears/:bear_id').put((req, res) => {
+        Bear.findById(req.params.bear_id, (err, bear) => {
+            if (err)
+                res.send(err);
+            bear.name = req.body.name; // update the bears info
+            bear.save((err) => {
+                if (err)
+                    res.send(err);
+                res.json({
+                    message: 'Bear updated!'
+                });
+            });
 
-//         });
-//     });
+        });
+    });
 
 // router.route('/bears/:bear_id')
 //     .delete(function (req, res) {
