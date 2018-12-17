@@ -205,30 +205,30 @@ router.use(function (req, res, next) {
 });
 
 
-// router.route('/bears')
-//     .post(function (req, res) {
-//         var bear = new Bear(); // create a new instance of the Bear model
-//         bear.name = req.body.name; // set the bears name (comes from the request)
-//         // save the bear and check for errors
-//         bear.save(function (err) {
-//             if (err)
-//                 res.send(err);
+router.route('/bears')
+    .post(function (req, res) {
+        var bear = new Bear(); // create a new instance of the Bear model
+        bear.name = req.body.name; // set the bears name (comes from the request)
+        // save the bear and check for errors
+        bear.save(function (err) {
+            if (err)
+                res.send(err);
 
-//             res.json({
-//                 message: 'Bear created!'
-//             });
-//         });
+            res.json({
+                message: 'Bear created!'
+            });
+        });
 
-//     });
+    });
 
-// router.route('/bears')
-//     .get((req, res) => {
-//         Bear.find((err, bears) => {
-//             if (err)
-//                 res.send(err);
-//             res.json(bears);
-//         });
-//     });
+router.route('/bears')
+    .get((req, res) => {
+        Bear.find((err, bears) => {
+            if (err)
+                res.send(err);
+            res.json(bears);
+        });
+    });
 
 // router.route('/bears/:bear_id')
 //     // get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
